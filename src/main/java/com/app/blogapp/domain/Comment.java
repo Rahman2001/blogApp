@@ -21,4 +21,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "author")
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "post")
+    private Post post;
 }

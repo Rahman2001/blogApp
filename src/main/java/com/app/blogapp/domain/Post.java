@@ -20,8 +20,7 @@ public class Post {
     private String description;
     @ManyToOne
     private User author;
-//    @OneToMany
-//    @JoinColumn(name = "comments")
-//    private List<Comment> comments;
+    @OneToMany
+    private List<Comment> comments;
 
 }
