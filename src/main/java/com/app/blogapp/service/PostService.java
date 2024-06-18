@@ -20,4 +20,8 @@ public class PostService {
     public List<Post> findAllByAuthor(User user) {
         return postRepo.findAllByAuthor_Email(user.getEmail());
     }
+
+    public Post addPostForUser(Post post) {
+        return this.postRepo.save(post);
+    }
 }

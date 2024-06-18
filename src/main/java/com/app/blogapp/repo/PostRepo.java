@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PostRepo extends JpaRepository<Post, Long> {
-    public List<Post> findAllByAuthor_Email(String email);
+    List<Post> findAllByAuthor_Email(String email);
 
 }

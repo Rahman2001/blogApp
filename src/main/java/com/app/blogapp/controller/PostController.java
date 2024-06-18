@@ -5,10 +5,7 @@ import com.app.blogapp.domain.User;
 import com.app.blogapp.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,11 @@ public class PostController {
         List<Post> posts = this.postService.findAllByAuthor(user);
         return posts != null && !posts.isEmpty() ?
                 ResponseEntity.ok(posts) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/addPost")
+    public ResponseEntity<Post> addPost(@RequestBody Post post) {
+        Post resp = this.postService.addPostForUser(post);
+        return resp != null ? ResponseEntity.ok(resp) : ResponseEntity.notFound().build();
     }
 }
