@@ -31,4 +31,10 @@ public class PostController {
         Post resp = this.postService.addPostForUser(post);
         return resp != null ? ResponseEntity.ok(resp) : ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/removePost/{post_id}")
+    public ResponseEntity<Post> removePost(@PathVariable Long post_id) {
+        boolean isDeleted = this.postService.deletePostById(post_id);
+        return isDeleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 }

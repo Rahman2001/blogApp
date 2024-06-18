@@ -24,4 +24,9 @@ public class PostService {
     public Post addPostForUser(Post post) {
         return this.postRepo.save(post);
     }
+
+    public boolean deletePostById(Long id) {
+        this.postRepo.deleteById(id);
+        return this.postRepo.existsById(id);
+    }
 }
