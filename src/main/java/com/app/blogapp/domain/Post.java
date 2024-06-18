@@ -1,9 +1,6 @@
 package com.app.blogapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +19,7 @@ public class Post {
     private String topic;
     private String description;
     @OneToOne
+    @JoinColumn(name = "author", referencedColumnName = "id")
     private User author;
     @OneToMany
     private List<Comment> comments;
