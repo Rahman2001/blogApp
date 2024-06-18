@@ -18,9 +18,10 @@ public class Post {
     private long id;
     private String topic;
     private String description;
-    @OneToOne
-    @JoinColumn(name = "author", referencedColumnName = "id")
+    @ManyToOne
     private User author;
-    @OneToMany
-    private List<Comment> comments;
+//    @OneToMany
+//    @JoinColumn(name = "comments")
+//    private List<Comment> comments;
+
 }

@@ -1,9 +1,6 @@
 package com.app.blogapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,11 +16,9 @@ import java.util.Date;
 public class Comment {
     @Id
     private int id;
-    private String comment;
+    private String message;
     private Date date;
-    @OneToOne
-    @JoinColumn(name = "author", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "author")
     private User user;
-    @OneToOne
-    private Post post;
 }
