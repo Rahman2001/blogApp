@@ -20,6 +20,4 @@ public class User {
     private String lastName;
     private String email;
     private String profession;
-    @OneToMany
-    private List<Post> postList;
 }

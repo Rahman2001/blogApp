@@ -19,8 +19,6 @@ public class Post {
     private String topic;
     private String description;
     @ManyToOne
-    private User author;
-    @OneToMany
-    private List<Comment> comments;
-
+    @JoinColumn(name = "user_id")
+    private User user;
 }

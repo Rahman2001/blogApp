@@ -19,9 +19,9 @@ public class Comment {
     private String message;
     private Date date;
     @ManyToOne
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "post")
+    @JoinColumn(name = "post_id")
     private Post post;
 }

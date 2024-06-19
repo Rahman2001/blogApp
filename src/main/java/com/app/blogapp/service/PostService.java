@@ -18,7 +18,7 @@ public class PostService {
     }
 
     public List<Post> findAllByAuthor(User user) {
-        return postRepo.findAllByAuthor_Email(user.getEmail());
+        return postRepo.findAllByUser_Email(user.getEmail());
     }
 
     public Post addPostForUser(Post post) {
