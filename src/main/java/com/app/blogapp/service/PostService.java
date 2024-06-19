@@ -27,6 +27,6 @@ public class PostService {
 
     public boolean deletePostById(Long id) {
         this.postRepo.deleteById(id);
-        return this.postRepo.existsById(id);
+        return !this.postRepo.existsById(id);
     }
 }

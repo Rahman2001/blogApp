@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public User updateUser(User user) {
-        User resp = this.userRepo.findByEmailAndFirstNameAndLastName(user.getEmail(), user.getFirstName(), user.getLastName());
+        User resp = this.userRepo.findByIdAndEmail(user.getId(), user.getEmail());
         return resp != null ? this.userRepo.save(user) : null;
     }
 

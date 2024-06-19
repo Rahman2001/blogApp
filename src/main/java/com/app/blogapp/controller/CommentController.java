@@ -18,7 +18,7 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @PostMapping("/getCommentsByPost/{post_id}")
+    @GetMapping("/getCommentsByPost/{post_id}")
     public ResponseEntity<List<Comment>> getAllComments(@PathVariable("post_id") long post_id) {
         List<Comment> comments = this.commentService.findCommentsByPostId(post_id);
         return comments != null && !comments.isEmpty() ?
