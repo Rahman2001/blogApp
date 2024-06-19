@@ -7,7 +7,7 @@ VALUES (1, 'rahmanrejepov777@gmail.com', 'Rahman', 'Rejepov', 'student'),
        (6, 'btskorea@hotmail.com', 'Jung', 'Kum', 'singer'),
        (7, 'melihayildiz@gazi.edu.tr', 'Meliha', 'Yildiz', 'chemical engineer');
 
-INSERT INTO post (id, description, topic, author_id)
+INSERT INTO post (id, description, topic, user_id)
 VALUES (1, 'ChatGPT-4o release is fantastic! Lets explore it!', 'AI news', 1),
        (2, 'Gazi Uni. graduation will be held in elementary school!', 'Education', 4),
        (3, 'Tesla has ongoing project on building AI robots called "Optimus."', 'Robotics', 5),
@@ -17,16 +17,10 @@ VALUES (1, 'ChatGPT-4o release is fantastic! Lets explore it!', 'AI news', 1),
        (7, 'Elun Musk finally got his 60$ billion compensation pay this month', 'Tesla News', 6),
        (8, 'Tommorow the weather forecast says that it will be very hot.', 'Weather News Today', 7);
 
-INSERT INTO comment (id, date, message, post, author)
+INSERT INTO comment (id, date, message, post_id, user_id)
 VALUES (1, '2024-12-04 13:15:00.000000', 'Whaatt? Are you kidding me? There is no wayy!', 2, 3),
        (2, '2012-12-11 10:00:00.000000', 'Wow! That looks amazing, let me prompt this module.', 1, 2),
        (3, '2010-11-23 05:07:11.000000', 'Yeah... I am not surprised something like that happens in the US', 4, 1),
        (4, '2019-12-30 12:00:00.000000', 'Well, I think it is good idea to become a member of BRICS. It will benefit to Turkey economy', 6, 4),
        (5, '2024-06-19 16:50:00.000000', 'I deeply respect Ilya because he thinks of the security first rather than profit', 5, 1),
        (6, '2024-06-19 17:00:00.000000', 'I think OpenAI will not grow without him. He was a main engine of the company', 5, 5);
-
-INSERT INTO user_post_list (user_id, post_list_id)
-SELECT u.id, p.id FROM user u JOIN post p ON p.author_id = u.id;
-
-INSERT INTO post_comments (post_id, comments_id)
-SELECT p.id, c.id FROM post p JOIN comment c ON c.post = p.id;
