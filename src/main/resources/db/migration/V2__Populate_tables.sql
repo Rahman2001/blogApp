@@ -24,3 +24,9 @@ VALUES (1, '2024-12-04 13:15:00.000000', 'Whaatt? Are you kidding me? There is n
        (4, '2019-12-30 12:00:00.000000', 'Well, I think it is good idea to become a member of BRICS. It will benefit to Turkey economy', 6, 4),
        (5, '2024-06-19 16:50:00.000000', 'I deeply respect Ilya because he thinks of the security first rather than profit', 5, 1),
        (6, '2024-06-19 17:00:00.000000', 'I think OpenAI will not grow without him. He was a main engine of the company', 5, 5);
+
+INSERT INTO user_post_list (user_id, post_list_id)
+SELECT u.id, p.id FROM user u JOIN post p ON p.author_id = u.id;
+
+INSERT INTO post_comments (post_id, comments_id)
+SELECT p.id, c.id FROM post p JOIN comment c ON c.post = p.id;
